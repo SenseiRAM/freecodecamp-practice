@@ -1,0 +1,33 @@
+/*
+  Solution to the Free Code Camp problem: Where Do I Belong?
+*/
+
+
+function getIndexToIns(arr, num) {
+  /*
+    push num to arr
+    sort arr ascending
+
+    for loop through array length
+      if i is equal to num
+        return i
+  */
+
+  arr.push(num);
+  arr.sort(function(a,b) {
+    return a - b;
+  });
+
+  var returnIndex = 0;
+
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] === num) {
+      returnIndex = i;
+      break;
+    }
+  }
+
+  return returnIndex;
+}
+
+getIndexToIns([40, 60], 50);
