@@ -1,0 +1,44 @@
+// Two solutions to Caesar's Cipher challenge on FreeCodeCamp
+
+function rot13(str) { // LBH QVQ VG!
+
+  /*
+    initialize empty decodedArray
+
+    iterate through str
+      if character is a letter
+        if value of character - 13 is less than 65
+          push the value of the character + 13 to decoded array
+        otherwise
+          push the value of the character - 13 to decodedArray
+      otherwise
+        push the character to decodedArray without making any changes
+
+      return the decodedArray
+  */
+
+ // var decodedArray = [];
+  var decodedString = '';
+  for (i = 0; i < str.length; i++) {
+    if (str.charCodeAt(i) >= 65 && str.charCodeAt(i) <= 90) {
+      if ((str.charCodeAt(i) - 13) < 65) {
+        // decodedArray.push((str.charCodeAt(i) + 13));
+        decodedString += String.fromCharCode(str.charCodeAt(i) + 13);
+      } else {
+        // decodedArray.push((str.charCodeAt(i) - 13));
+        decodedString += String.fromCharCode(str.charCodeAt(i) - 13);
+      }
+
+    } else {
+        //decodedArray.push((str.charCodeAt(i)));
+        decodedString += String.fromCharCode(str.charCodeAt(i));
+    }
+  }
+
+  //var outPutString = decodedArray.join(', ');
+  // return String.fromCharCode.apply(String, decodedArray);
+  return decodedString;
+}
+
+// Change the inputs below to test
+rot13("SERR YBIR?");
